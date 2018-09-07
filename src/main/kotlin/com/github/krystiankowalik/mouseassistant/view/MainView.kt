@@ -3,18 +3,21 @@ package com.github.krystiankowalik.mouseassistant.view
 import com.github.krystiankowalik.mouseassistant.MouseMover
 import com.github.krystiankowalik.mouseassistant.app.Styles
 import javafx.concurrent.Task
+import javafx.geometry.Pos
 import tornadofx.*
 
-class MainView : View("Mouse Assistant") {
+class MainView : View("Hamster") {
 
-    lateinit var task : Task<Unit>
+    lateinit var task: Task<Unit>
     override val root = hbox {
-        label("Mickey") {
-            addClass(Styles.heading)
-            task = runAsyncWithOverlay {
+        alignment = Pos.CENTER
+
+        label("The hamster is running...") {
+            task = runAsyncWithProgress {
                 MouseMover.run()
             }
         }
+
     }
 
     override fun onUndock() {
