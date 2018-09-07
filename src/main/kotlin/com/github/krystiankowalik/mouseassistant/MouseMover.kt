@@ -4,8 +4,7 @@ import java.awt.MouseInfo
 import java.awt.Point
 import java.awt.Robot
 import java.time.LocalDateTime
-import java.util.Objects
-import java.util.Random
+import java.util.*
 
 object MouseMover {
 
