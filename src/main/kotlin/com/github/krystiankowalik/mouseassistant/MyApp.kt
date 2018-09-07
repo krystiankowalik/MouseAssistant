@@ -11,8 +11,13 @@ import tornadofx.*
 object MyApp {
 
     class TornadoApp : App(MainView::class) {
+
+        val mainView: MainView by inject()
+
         override fun start(stage: Stage) {
             super.start(stage)
+            FX.primaryStage.hide()
+
             stage.icons += Image("mouse_big.png")
 
             trayicon(resources.stream("/mouse_small.png")) {
@@ -22,14 +27,25 @@ object MyApp {
                 }
 
                 menu("MyApp") {
-                    item("Show...") {
+                    item("Show status") {
                         setOnAction(fxThread = true) {
                             FX.primaryStage.show()
                             FX.primaryStage.toFront()
                         }
                     }
+                    item("Start") {
+                        setOnAction(fxThread = true) {
+                            startDaemon()
+                        }
+                    }
+                    item("Stop") {
+                        setOnAction(fxThread = true) {
+                            stopDaemon()
+                        }
+                    }
                     item("Exit") {
                         setOnAction(fxThread = true) {
+                            stopDaemon()
                             Platform.exit()
                         }
                     }
@@ -37,6 +53,19 @@ object MyApp {
 
 
             }
+        }
+
+        private fun startDaemon() {
+            mainView.task.run()
+        }
+
+        private fun stopDaemon() {
+            mainView.task.cancel()
+        }
+
+        override fun stop() {
+            stopDaemon()
+            super.stop()
         }
     }
 

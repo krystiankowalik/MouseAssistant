@@ -20,9 +20,9 @@ class MainView : View("Hamster") {
 
     }
 
-    override fun onUndock() {
+   /* override fun onUndock() {
         println("Stopping Daemon...")
         task.cancel()
         super.onUndock()
-    }
+    }*/
 }
