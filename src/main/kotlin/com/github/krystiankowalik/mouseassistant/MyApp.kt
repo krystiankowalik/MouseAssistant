@@ -33,16 +33,7 @@ object MyApp {
                             FX.primaryStage.toFront()
                         }
                     }
-                    item("Start") {
-                        setOnAction(fxThread = true) {
-                            startDaemon()
-                        }
-                    }
-                    item("Stop") {
-                        setOnAction(fxThread = true) {
-                            stopDaemon()
-                        }
-                    }
+
                     item("Exit") {
                         setOnAction(fxThread = true) {
                             stopDaemon()
@@ -55,10 +46,6 @@ object MyApp {
             }
         }
 
-        private fun startDaemon() {
-            println("Trying to start the mouse")
-            mainView.task.run()
-        }
 
         private fun stopDaemon() {
             println("Trying to stop the mouse")

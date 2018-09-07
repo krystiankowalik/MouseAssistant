@@ -8,7 +8,7 @@ import java.util.*
 
 object MouseMover {
 
-    val TIMEOUT = 120L
+    val TIMEOUT = 120000L
     val MIN = -1
     val MAX = 1
 

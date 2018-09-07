@@ -9,10 +9,11 @@ import tornadofx.*
 class MainView : View("Hamster") {
 
     lateinit var task: Task<Unit>
+
     override val root = hbox {
         alignment = Pos.CENTER
 
-        label("The hamster is running...") {
+        label("The hamster is rolling...") {
             task = runAsyncWithProgress {
                 println("Mouse started")
                 MouseMover.run()
