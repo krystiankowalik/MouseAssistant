@@ -13,9 +13,9 @@ object MyApp {
     class TornadoApp : App(MainView::class) {
         override fun start(stage: Stage) {
             super.start(stage)
-            stage.icons += Image("Hamster.png")
+            stage.icons += Image("mouse.png")
 
-            trayicon(resources.stream("/Hamster.png")) {
+            trayicon(resources.stream("/mouse.png")) {
                 setOnMouseClicked(fxThread = true) {
                     FX.primaryStage.show()
                     FX.primaryStage.toFront()
