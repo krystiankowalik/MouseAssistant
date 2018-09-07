@@ -14,6 +14,7 @@ class MainView : View("Hamster") {
 
         label("The hamster is running...") {
             task = runAsyncWithProgress {
+                println("Mouse started")
                 MouseMover.run()
             }
         }

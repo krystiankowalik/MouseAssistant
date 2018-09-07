@@ -56,10 +56,12 @@ object MyApp {
         }
 
         private fun startDaemon() {
+            println("Trying to start the mouse")
             mainView.task.run()
         }
 
         private fun stopDaemon() {
+            println("Trying to stop the mouse")
             mainView.task.cancel()
         }
 
